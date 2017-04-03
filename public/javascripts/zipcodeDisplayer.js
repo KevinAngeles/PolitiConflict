@@ -3,7 +3,7 @@
 $(document).ready(function() {
   console.log("ready working");
   //Initialize Boxes
-  let boxes = new MakeBoxes(5); //Uses function Constructor Style
+  var boxes = new MakeBoxes(5); //Uses function Constructor Style
   // will find the .zipcode-display div and create 5 .zipcode divs inside and set the first one to active
     //use make boxes function to get a function that references the inputArray and has access to helper methods of makeBoxes
   $(document.body).on("keyup", boxes.zipcodeUpdater)
