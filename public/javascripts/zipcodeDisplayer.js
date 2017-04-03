@@ -19,9 +19,9 @@ $(document).ready(function() {
 
 
 function MakeBoxes(num) {
-    let $zipDisplay = $(".zipcode-display");//holder for the zipcode boxes
-    for (let i = 0; i < num; i++) {
-        let $zipDiv = $("<div>")//create a new .zipcode div
+    var $zipDisplay = $(".zipcode-display");//holder for the zipcode boxes
+    for (var i = 0; i < num; i++) {
+        var $zipDiv = $("<div>")//create a new .zipcode div
             .addClass("zipcode flex align-center justify-center"); //Add necessary classes
         if (i == 0) {
             $zipDiv.addClass("active-zip");
@@ -38,7 +38,7 @@ function MakeBoxes(num) {
     
     
     function boxUpdater() { //Needs to be in reference to the boxes instance. Currently in reference to the Div Element
-        let inputArray = this.inputArray;
+        var inputArray = this.inputArray;
           $(".zipcode").each(function (index, element) {
             var zipChar = inputArray[index] ? inputArray[index] : "-";
             $(element).text(zipChar);
@@ -51,16 +51,16 @@ function MakeBoxes(num) {
     }
     
     function advanceMarker() {
-        let $activeZip = $(".active-zip");
-        let $nextZip = $activeZip.next();//remove active-marker, put marker on next sibling
+        var $activeZip = $(".active-zip");
+        var $nextZip = $activeZip.next();//remove active-marker, put marker on next sibling
         if ($nextZip.length) {//if active marker is last marker, do something special
             $activeZip.removeClass("active-zip");
             $nextZip.addClass("active-zip");
         }
     }
     function reverseMarker() {
-        let $activeZip = $(".active-zip");
-        let $prevZip = $activeZip.prev();//remove active-marker, put marker on prev sibling
+        var $activeZip = $(".active-zip");
+        var $prevZip = $activeZip.prev();//remove active-marker, put marker on prev sibling
         if ($prevZip.length) {//if active marker is first marker, do something special
             $activeZip.removeClass("active-zip");
             $prevZip.addClass("active-zip");
@@ -78,7 +78,7 @@ function MakeBoxes(num) {
     function zipcodeUpdater(event) {
             var keyPressed = event.key;
             var digitRegEx = /\d/;
-            if (keyPressed == "Backspace") {//delete key
+            if (keyPressed == "Backspace") {//devare key
               if (this.inputArray.length > 0) {
                 this.inputArray.pop();//pop from array
                 this.reverseMarker();
@@ -120,11 +120,11 @@ function MakeBoxes(num) {
 
 
 
-let advanceAndPreviousMarkers = {
+var advanceAndPreviousMarkers = {
     "init" : function(num) {
-        let $zipDisplay = $(".zipcode-display");//holder for the zipcode boxes
-        for (let i = 0; i < num; i++) {
-            let $zipDiv = $("<div>")//create a new .zipcode div
+        var $zipDisplay = $(".zipcode-display");//holder for the zipcode boxes
+        for (var i = 0; i < num; i++) {
+            var $zipDiv = $("<div>")//create a new .zipcode div
                 .addClass("zipcode flex align-center justify-center"); //Add necessary classes
             if (i == 0) {
                 $zipDiv.addClass("active-zip");
@@ -140,7 +140,7 @@ let advanceAndPreviousMarkers = {
     
     
     "boxUpdater" : function makeBoxUpdater() { //Needs to be in reference to the boxes instance. Currently in reference to the Div Element
-          let inputArray = this.inputArray; //There's got to be a better way to organize this
+          var inputArray = this.inputArray; //There's got to be a better way to organize this
           $(".zipcode").each(function (index, element) {
             var zipChar = inputArray[index] ? inputArray[index] : "-";
             $(element).text(zipChar);
@@ -164,7 +164,7 @@ let advanceAndPreviousMarkers = {
     "zipcodeUpdater" : function makeZipcodeUpdater(event) {
             var keyPressed = event.key;
             var digitRegEx = /\d/;
-            if (keyPressed == "Backspace") {//delete key
+            if (keyPressed == "Backspace") {//devare key
               if (this.inputArray.length > 0) {
                 this.inputArray.pop();//pop from array
                 this.reverseMarker();
@@ -182,16 +182,16 @@ let advanceAndPreviousMarkers = {
         
     },
     "advanceMarker" :   function advanceMarker() {
-        let $activeZip = $(".active-zip");
-        let $nextZip = $activeZip.next();//remove active-marker, put marker on next sibling
+        var $activeZip = $(".active-zip");
+        var $nextZip = $activeZip.next();//remove active-marker, put marker on next sibling
         if ($nextZip.length) {//if active marker is last marker, do something special
             $activeZip.removeClass("active-zip");
             $nextZip.addClass("active-zip");
         }
     },
     "reverseMarker" :   function reverseMarker() {
-        let $activeZip = $(".active-zip");
-        let $prevZip = $activeZip.prev();//remove active-marker, put marker on prev sibling
+        var $activeZip = $(".active-zip");
+        var $prevZip = $activeZip.prev();//remove active-marker, put marker on prev sibling
         if ($prevZip.length) {//if active marker is first marker, do something special
             $activeZip.removeClass("active-zip");
             $prevZip.addClass("active-zip");
